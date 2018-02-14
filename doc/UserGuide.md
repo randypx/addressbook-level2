@@ -66,6 +66,10 @@ Examples:
 * `find Betsy Tim John`<br>
   Returns Any person having names `Betsy`, `Tim`, or `John`
 
+### Listing all persons in alphabetical order: `sort`
+Shows a list of all persons in the address book in alphabetical order.<br>
+Format: `sort`
+
 ### Deleting a person : `delete`
 Deletes the specified person from the address book. Irreversible.<br>
 Format: `delete INDEX`

@@ -23,7 +23,7 @@
   list
 
 ##########################################################
-# test add person command, setup state for futuer tests
+# test add person command, setup state for future tests
 ##########################################################
 
   # should catch invalid args format
@@ -40,6 +40,8 @@
   add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag
 
   # should add correctly and list non private information
+  add John Doe p/000000 e/unknown@where.com a/000, nowhere street
+  list
   add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street
   list
   add Betsy Choo pp/222222 pe/benchoo@nus.edu.sg pa/222, beta street t/secretive
@@ -60,19 +62,26 @@
 
   #should catch argument format
   edit Adam Brown p/123456 e/adam@gmail.com a/111, alpa street
-  edit 1 Adam Brown 123456 e/adam@gmail.com a/111, alpa street
-  edit 1 Adam Brown p/123456 adam@gmail.com a/111, alpa street
-  edit 1 Adam Brown p/123456 e/adam@gmail.com 111, alpa street
+  edit 2 Adam Brown 123456 e/adam@gmail.com a/111, alpa street
+  edit 2 Adam Brown p/123456 adam@gmail.com a/111, alpa street
+  edit 2 Adam Brown p/123456 e/adam@gmail.com 111, alpa street
 
   #should catch invalid person data
-  edit 6 Adam Brown p/111111 e/adam@gmail.com a/111, alpha street
-  edit 1 Adam Brown p/111111 e/falseEmail a/111, alpha street
-  edit 1 [notAName] p/111111 e/adam@gmail.com a/111, alpha street
-  edit 1 Adam Brown p/not_number e/adam@gmail.com a/111, alpha street t/invalid_-[.tag
+  edit 7 Adam Brown p/111111 e/adam@gmail.com a/111, alpha street
+  edit 2 Adam Brown p/111111 e/falseEmail a/111, alpha street
+  edit 2 [notAName] p/111111 e/adam@gmail.com a/111, alpha street
+  edit 2 Adam Brown p/not_number e/adam@gmail.com a/111, alpha street t/invalid_-[.tag
 
   #should allow editing
-  edit 1 Adam Brown p/123456 e/adam@hotmail.com a/123, alpha street
+  edit 2 Adam Brown p/123456 e/adam@hotmail.com a/123, alpha street
   list
+
+##########################################################
+# test sort persons command
+##########################################################
+
+  # should persons sorted in alphabetical order
+  sort
 
 ##########################################################
 # test view/viewall persons command
@@ -87,10 +96,10 @@
   # should catch invalid index
   view -1
   view 0
-  view 6
+  view 7
   viewall -1
   viewall 0
-  viewall 6
+  viewall 7
 
   # should show all non private for both view and viewall
   view 1
