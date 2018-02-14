@@ -91,6 +91,15 @@ public class AddressBook {
     }
 
     /**
+     * Edits and returns the equivalent person in the address book.
+     *
+     * @throws IndexOutOfBoundsException if the target index is out of bounds.
+     */
+    public void editPerson(int targetIndex, Person toEdit) throws IndexOutOfBoundsException{
+        allPersons.edit(targetIndex, toEdit);
+    }
+
+    /**
      * Removes the equivalent person from the address book.
      *
      * @throws PersonNotFoundException if no such Person could be found.

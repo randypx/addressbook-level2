@@ -111,6 +111,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Edits and return the equivalent person in the list.
+     *
+     * @throws IndexOutOfBoundsException if the target index is out of bounds.
+     */
+    public void edit(int targetIndex, Person toEdit) throws IndexOutOfBoundsException {
+        internalList.set(targetIndex, toEdit);
+    }
+
+    /**
      * Removes the equivalent person from the list.
      *
      * @throws PersonNotFoundException if no such person could be found in the list.
